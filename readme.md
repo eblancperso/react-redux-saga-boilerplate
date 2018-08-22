@@ -22,6 +22,9 @@ npm start
 ```
 
 ## Changes
+### 1.0.1
+- Put canRequestSignIn in mapStateToProps. Removed unused action type in authentication reducer.
+
 ### 1.0.0
 - Initial commit with all working files
 

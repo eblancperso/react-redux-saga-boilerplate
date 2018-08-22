@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 
 import { SIGN_IN_REQUEST, SIGN_IN_EMAIL_CHANGED, SIGN_IN_PASSWORD_CHANGED } from '../../constants/ActionTypes';
 
-const SignIn = ({ onRequestSignIn, onEmailChanged, onPasswordChanged, email, password, user, error }) => {
+const SignIn = ({ onRequestSignIn, onEmailChanged, onPasswordChanged, email, password, user, error, canRequestSignIn }) => {
     const { name } = user;
-    const canRequestSignIn = email.trim().length > 0 && password.trim().length > 0;
     return (
         <div>
             <label>Email</label>
@@ -25,7 +24,8 @@ const mapStateToProps = state => {
         user: state.authentication.user,
         error: state.authentication.error,
         email: state.authentication.email,
-        password: state.authentication.password
+        password: state.authentication.password,
+        canRequestSignIn: state.authentication.email.trim().length > 0 && state.authentication.password.trim().length > 0
     };
 };
 
